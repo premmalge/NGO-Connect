@@ -393,7 +393,7 @@ Connection statCon = DBConnection.getConnection();
 
 PreparedStatement ngoPs =
 statCon.prepareStatement(
-"SELECT COUNT(*) FROM ngos");
+"SELECT COUNT(*) FROM ngos WHERE status='Approved' ");
 
 ResultSet ngoRs =
 ngoPs.executeQuery();
@@ -517,7 +517,7 @@ Connection con =
 DBConnection.getConnection();
 
 String query =
-"SELECT * FROM ngos WHERE 1=1 ";
+"SELECT * FROM ngos WHERE status='Approved' ";
 
 if(category != null){
 
@@ -560,6 +560,7 @@ ResultSet rs =
 ps.executeQuery();
 
 while(rs.next()){
+	
 
 %>
 
@@ -663,7 +664,7 @@ Volunteer Now
 /* TOTAL NGO COUNT */
 
 String countQuery =
-"SELECT COUNT(*) FROM ngos";
+"SELECT COUNT(*) FROM ngos WHERE status='Approved'";
 
 PreparedStatement countPs =
 con.prepareStatement(countQuery);
